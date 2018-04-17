@@ -1,6 +1,8 @@
 # macos-setup
 Scripts for managing macos setup.
 
+Everyone has them, these are mine.
+
 ## Usage
 
 1.  Clone to a local dir
