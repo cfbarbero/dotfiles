@@ -23,7 +23,7 @@ function runDots() {
     source .macos
 
     echo "------------------------------"
-    echo "Completed running .dots, restart your computer to ensure all updates take effect"
+    echo "Completed running bootstrap, restart your computer to ensure all updates take effect"
     echo "------------------------------"
 }
 
