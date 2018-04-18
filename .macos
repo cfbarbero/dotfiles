@@ -12,8 +12,8 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 
-# Set standby delay to 24 hours (default is 1 hour)
-sudo pmset -a standbydelay 86400
+# Set standby delay to 1 hours (default is 1 hour)
+sudo pmset -a standbydelay 3600
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
@@ -56,16 +56,16 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
-defaults write NSGlobalDomain AppleLanguages -array "en" "nl"
-defaults write NSGlobalDomain AppleLocale -string "en_US@currency=EUR"
-defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
-defaults write NSGlobalDomain AppleMetricUnits -bool true
+defaults write NSGlobalDomain AppleLanguages -array "en"
+defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
+defaults write NSGlobalDomain AppleMeasurementUnits -string "Inches"
+defaults write NSGlobalDomain AppleMetricUnits -bool false
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
-sudo systemsetup -settimezone "Europe/Brussels" > /dev/null
+sudo systemsetup -settimezone "America/Denver" > /dev/null
 
-# Disable auto-correct
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+# auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool true
 
 ###############################################################################
 # Screen                                                                      #
@@ -126,8 +126,8 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
     OpenWith -bool true \
     Privileges -bool true
 
-# Auto hide menu bar
-defaults write NSGlobalDomain _HIHideMenuBar -bool true
+# don't Auto hide menu bar
+defaults write NSGlobalDomain _HIHideMenuBar -bool false
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
@@ -157,10 +157,10 @@ defaults write com.apple.dock static-only -bool true
 defaults write com.apple.dock expose-group-by-app -bool true
 
 # Disable Dashboard
-defaults write com.apple.dashboard mcx-disabled -bool true
+defaults write com.apple.dashboard mcx-disabled -bool false
 
 # Don’t show Dashboard as a Space
-defaults write com.apple.dock dashboard-in-overlay -bool true
+defaults write com.apple.dock dashboard-in-overlay -bool false
 
 # Remove the auto-hiding Dock delay
 defaults write com.apple.dock autohide-delay -float 0
@@ -169,7 +169,7 @@ defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0
 
 # Automatically hide and show the Dock
-defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide -bool false
 
 # Add iOS & Watch Simulator to Launchpad
 sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"

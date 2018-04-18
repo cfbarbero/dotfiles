@@ -15,6 +15,12 @@ function runDots() {
     echo ""
     ./brew.sh
     
+    echo ""
+    echo "------------------------------"
+    echo "Set mac defaults"
+    echo "------------------------------"
+    echo ""
+    source .macos
 
     echo "------------------------------"
     echo "Completed running .dots, restart your computer to ensure all updates take effect"
