@@ -20,7 +20,7 @@ function runDots() {
     echo "Set mac defaults"
     echo "------------------------------"
     echo ""
-    source .macos
+    source ./macos-settings.sh
 
     echo "------------------------------"
     echo "Completed running bootstrap, restart your computer to ensure all updates take effect"
