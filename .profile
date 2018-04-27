@@ -27,6 +27,8 @@ complete -C aws_completer aws
 ### Aliases
 alias profile="code ~/.profile"
 alias reload_profile="source ~/.profile"
+alias dotfiles="code ~/projects/cfbarbero/dotfiles"
+alias update_dotfiles="source ~/projects/cfbarbero/dotfiles/bootstrap.sh"
 alias al-inf='awssaml -u $USER -a "inf:AWS-Developer" -d'
 
 alias dc="docker-compose"

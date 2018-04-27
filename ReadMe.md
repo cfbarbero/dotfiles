@@ -10,7 +10,8 @@ Everyone has them, these are mine.
     git clone git@github.com:cfbarbero/macos-setup.git
     ```
 
-1.  Run [homebrew bundle](https://github.com/Homebrew/homebrew-bundle)
+1.  Run the all setup
     ```bash
-    brew bundle
+    source bootstrap.sh
     ```
+

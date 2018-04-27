@@ -1,4 +1,5 @@
 #!/bin/sh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Check for Homebrew and install if we don't have it
 if test ! $(which brew); then
@@ -10,6 +11,4 @@ brew update
 
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
-brew bundle
-
-
+brew bundle --file="$DIR/Brewfile"
