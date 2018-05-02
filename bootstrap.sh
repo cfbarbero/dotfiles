@@ -22,6 +22,13 @@ function runDots() {
     echo ""
     source ./macos-settings.sh
 
+    echo ""
+    echo "------------------------------"
+    echo "Set profile"
+    echo "------------------------------"
+    echo ""
+    source ./dotfiles.sh
+
     echo "------------------------------"
     echo "Completed running bootstrap, restart your computer to ensure all updates take effect"
     echo "------------------------------"
