@@ -14,11 +14,19 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
+## Shell Prompt
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
-PS1='\u@\h \W$(__git_ps1 " (%s)")\$ '
+### user@hostname path/to/directory (git state)$
+PS1='\u@\h \w$(__git_ps1 " (%s)")\$ '
 
 export PATH="$HOME/.local/bin:$PATH"
+
+### GOLANG
+export GOPATH=$HOME/go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 
 ### AWS AutoComplete
 complete -C aws_completer aws
@@ -31,6 +39,7 @@ alias dotfiles="code ~/projects/cfbarbero/dotfiles"
 alias update_dotfiles="source ~/projects/cfbarbero/dotfiles/bootstrap.sh"
 alias al-inf='awssaml -u $USER -a "inf:AWS-Developer" -d'
 alias al-shrdsvcdev='awssaml -u $USER -a "dhishrdsvcdev:AWS-Developer" -d'
+alias al-shrdsvcprod='awssaml -u $USER -a "dhishrdsvcprod:AWS-Developer" -d'
 
 alias dc="docker-compose"
 ### Functions
