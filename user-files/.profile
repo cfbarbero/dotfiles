@@ -40,6 +40,8 @@ alias update_dotfiles="source ~/projects/cfbarbero/dotfiles/bootstrap.sh"
 alias al-inf='awssaml -u $USER -a "inf:AWS-Developer" -d'
 alias al-shrdsvcdev='awssaml -u $USER -a "dhishrdsvcdev:AWS-Developer" -d'
 alias al-shrdsvcprod='awssaml -u $USER -a "dhishrdsvcprod:AWS-Developer" -d'
+alias al-dhiprod='awssaml -u $USER -a "dhiprod:AWS-Engineer" -d'
+
 
 alias dc="docker-compose"
 ### Functions
