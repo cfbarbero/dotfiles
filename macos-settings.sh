@@ -72,8 +72,10 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool true
 ###############################################################################
 
 # Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
+#defaults write com.apple.screensaver askForPassword -int 1
+defaults delete com.apple.screensaver askForPassword
+#defaults write com.apple.screensaver askForPasswordDelay -int 0
+defaults delete com.apple.screensaver askForPasswordDelay
 
 ###############################################################################
 # Finder                                                                      #
@@ -128,6 +130,9 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 
 # don't Auto hide menu bar
 defaults write NSGlobalDomain _HIHideMenuBar -bool false
+
+# Finder: Show Hidden files
+defaults write com.apple.finder AppleShowAllFiles -bool YES
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
@@ -217,6 +222,12 @@ defaults write com.apple.terminal StringEncodings -array 4
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
+# Specify the preferences directory
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.iterm2_profile"
+
+# Tell iTerm2 to use the custom preferences in the directory
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
 ###############################################################################
 # Time Machine                                                                #
 ###############################################################################
@@ -247,6 +258,7 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0
 
 # Use plain text mode for new TextEdit documents
 defaults write com.apple.TextEdit RichText -int 0
+
 # Open and save files as UTF-8 in TextEdit
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
