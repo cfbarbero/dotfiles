@@ -29,7 +29,7 @@ export PATH=$PATH:$GOPATH/bin
 
 
 ### AWS AutoComplete
-complete -C aws_completer aws
+complete -C /usr/local/bin/aws_completer aws
 
 
 ### Aliases
@@ -37,6 +37,7 @@ alias profile="code ~/.profile"
 alias reload_profile="source ~/.profile"
 alias dotfiles="code ~/projects/cfbarbero/dotfiles"
 alias update_dotfiles="source ~/projects/cfbarbero/dotfiles/bootstrap.sh"
+alias al='awssaml -u $USER'
 alias al-inf='awssaml -u $USER -a "inf:AWS-Developer" -d'
 alias al-shrdsvcdev='awssaml -u $USER -a "dhishrdsvcdev:AWS-Developer" -d'
 alias al-shrdsvcprod='awssaml -u $USER -a "dhishrdsvcprod:AWS-Developer" -d'
