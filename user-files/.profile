@@ -45,4 +45,7 @@ alias al-dhiprod='awssaml -u $USER -a "dhiprod:AWS-Engineer" -d'
 
 
 alias dc="docker-compose"
-### Functions
+
+alias hosts="sudo vim /etc/hosts"
+alias reload-dns="sudo killall -HUP mDNSResponder"
+### Functionse

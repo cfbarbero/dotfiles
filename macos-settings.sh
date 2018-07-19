@@ -187,6 +187,12 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 defaults write com.apple.dock wvous-br-corner -int 0
 defaults write com.apple.dock wvous-br-modifier -int 0
 
+# Dashboard states:
+#  1: off
+#  2: space
+#  3: overlay
+defaults write com.apple.dashboard dashboard-enabled-state -int 1
+
 ###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
