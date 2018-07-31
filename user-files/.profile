@@ -22,6 +22,10 @@ PS1='\u@\h \w$(__git_ps1 " (%s)")\$ '
 
 export PATH="$HOME/.local/bin:$PATH"
 
+# Increase bash history
+export HISTFILESIZE=1000000
+export HISTSIZE=1000000
+
 ### GOLANG
 export GOPATH=$HOME/go
 export GOPATH=$HOME/go
@@ -48,4 +52,4 @@ alias dc="docker-compose"
 
 alias hosts="sudo vim /etc/hosts"
 alias reload-dns="sudo killall -HUP mDNSResponder"
-### Functionse
+### Functions
