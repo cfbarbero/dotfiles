@@ -1,6 +1,8 @@
 tap "homebrew/core"
 tap "homebrew/bundle"
 tap "caskroom/cask"
+tap "jmespath/jmespath"
+
 brew "mas"
 brew "awscli"
 brew "awsebcli"
@@ -26,6 +28,8 @@ cask "visual-studio"
 cask "visual-studio-code"
 cask "google-chrome"
 cask "sourcetree"
+cask "microsoft-teams"
+cask "blue-jeans"
 
 # Development
 cask "dotnet"
@@ -48,7 +52,9 @@ brew "moreutils"
 brew "openssl"
 brew "gpg"
 brew "jq"
+brew "jp"
 brew "ssh-copy-id"
+brew "httpie"
 
 # Devops tools
 tap "jenkins-x/jx"
