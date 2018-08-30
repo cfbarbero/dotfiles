@@ -52,4 +52,12 @@ alias dc="docker-compose"
 
 alias hosts="sudo vim /etc/hosts"
 alias reload-dns="sudo killall -HUP mDNSResponder"
+
+alias create-venv="python3 -m venv .venv"
+alias activate-venv="source .venv/bin/activate"
+alias av='activate-venv'
+
+alias dhi="cd ~/projects/dhi"
+
+alias bright="brightness 1"
 ### Functions

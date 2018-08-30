@@ -55,6 +55,8 @@ brew "jq"
 brew "jp"
 brew "ssh-copy-id"
 brew "httpie"
+brew "influxdb"
+brew "brightness"
 
 # Devops tools
 tap "jenkins-x/jx"
