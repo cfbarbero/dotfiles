@@ -32,6 +32,11 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 
+### NVM
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+
 ### AWS AutoComplete
 complete -C /usr/local/bin/aws_completer aws
 
@@ -43,10 +48,10 @@ alias dotfiles="code ~/projects/cfbarbero/dotfiles"
 alias update_dotfiles="source ~/projects/cfbarbero/dotfiles/bootstrap.sh"
 alias al='awssaml -u $USER'
 alias al-inf='awssaml -u $USER -a "inf:AWS-Engineer" -d'
-alias al-shrdsvcdev='awssaml -u $USER -a "dhishrdsvcdev:AWS-Developer" -d'
-alias al-shrdsvcprod='awssaml -u $USER -a "dhishrdsvcprod:AWS-Developer" -d'
-alias al-dhiprod='awssaml -u $USER -a "dhiprod:AWS-Engineer" -d'
-
+alias al-shrdsvcdev='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -d'
+alias al-shrdsvcprod='awssaml -u $USER -a "dhishrdsvcprod:DHI-PowerUser" -d'
+alias al-dhiprod='awssaml -u $USER -a "dhiprod:DHI-PowerUser" -d'
+alias al-shrdsvcall='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -a "dhishrdsvcprod:DHI-PowerUser"'
 
 alias dc="docker-compose"
 

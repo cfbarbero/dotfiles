@@ -2,6 +2,7 @@ tap "homebrew/core"
 tap "homebrew/bundle"
 tap "caskroom/cask"
 tap "jmespath/jmespath"
+tap "homebrew/cask-drivers"
 
 brew "mas"
 brew "awscli"
@@ -57,6 +58,7 @@ brew "ssh-copy-id"
 brew "httpie"
 brew "influxdb"
 brew "brightness"
+cask "logitech-options"
 
 # Devops tools
 tap "jenkins-x/jx"

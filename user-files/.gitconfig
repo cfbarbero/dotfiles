@@ -22,6 +22,10 @@
     s = status -s
     co = checkout
     cob = checkout -b
+
+    po = remote prune origin
+    delete-gone-branches = "!git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D"
+
     # list branches sorted by last modified
     b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
 
