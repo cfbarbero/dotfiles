@@ -3,6 +3,7 @@ tap "homebrew/bundle"
 tap "caskroom/cask"
 tap "jmespath/jmespath"
 tap "homebrew/cask-drivers"
+tap "wallix/awless"
 
 brew "mas"
 brew "awscli"
@@ -12,7 +13,7 @@ brew "awsebcli"
 brew "bash-completion"
 brew "git"
 brew "pyenv"
-
+brew "awless"
 
 # Apps
 cask "spectacle"
