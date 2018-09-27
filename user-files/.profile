@@ -2,6 +2,12 @@
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
+USER_BASE_PATH=$(python -m site --user-base)
+export PATH=$PATH:$USER_BASE_PATH/bin
+
+USER_BASE_PATH=$(python3 -m site --user-base)
+export PATH=$PATH:$USER_BASE_PATH/bin
+
 # if command -v pyenv 1>/dev/null 2>&1; then
 #   eval "$(pyenv init -)"
 # fi
@@ -47,7 +53,8 @@ alias reload_profile="source ~/.profile"
 alias dotfiles="code ~/projects/cfbarbero/dotfiles"
 alias update_dotfiles="source ~/projects/cfbarbero/dotfiles/bootstrap.sh"
 alias al='awssaml -u $USER'
-alias al-inf='awssaml -u $USER -a "inf:AWS-Engineer" -d'
+alias al-sb1='awssaml -u $USER -a "dhisandbox1:AWS-Engineer" -d'
+alias al-sb2='awssaml -u $USER -a "dhisandbox2:AWS-Engineer" -d'
 alias al-shrdsvcdev='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -d'
 alias al-shrdsvcprod='awssaml -u $USER -a "dhishrdsvcprod:DHI-PowerUser" -d'
 alias al-dhiprod='awssaml -u $USER -a "dhiprod:DHI-PowerUser" -d'
