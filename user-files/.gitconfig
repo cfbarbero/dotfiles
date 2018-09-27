@@ -1,6 +1,9 @@
 [user]
 	email = cfbarbero@gmail.com
 	name = Cris Barbero
+[credential]
+    helper = "!aws codecommit credential-helper $@"
+    UseHttpPath = true
 [color]
 	ui = auto
 [alias]
