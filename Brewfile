@@ -14,6 +14,7 @@ brew "bash-completion"
 brew "git"
 brew "pyenv"
 brew "awless"
+brew "cmake"
 
 # Apps
 cask "spectacle"
@@ -60,6 +61,7 @@ brew "httpie"
 brew "influxdb"
 brew "brightness"
 cask "logitech-options"
+brew "wget"
 
 # Devops tools
 tap "jenkins-x/jx"
@@ -67,6 +69,7 @@ brew "jx"
 cask "vagrant"
 # cask "virtualbox"
 brew "tfenv"
+brew "cmake"
 
 # node stuff
 brew "node"
