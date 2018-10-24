@@ -15,6 +15,8 @@ brew "git"
 brew "pyenv"
 brew "awless"
 brew "cmake"
+brew "libgit2"
+brew "binutils"
 
 # Apps
 cask "spectacle"
@@ -33,9 +35,9 @@ cask "google-chrome"
 cask "sourcetree"
 cask "microsoft-teams"
 cask "blue-jeans"
+brew "fish"
 
 # Development
-cask "dotnet"
 cask "dotnet-sdk"
 cask "java"
 
@@ -69,7 +71,7 @@ brew "jx"
 cask "vagrant"
 # cask "virtualbox"
 brew "tfenv"
-brew "cmake"
+
 
 # node stuff
 brew "node"

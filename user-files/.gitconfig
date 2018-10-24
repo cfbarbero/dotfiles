@@ -26,6 +26,8 @@
     co = checkout
     cob = checkout -b
 
+    push-origin = push -u origin HEAD
+
     po = remote prune origin
     delete-gone-branches = "!git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D"
 

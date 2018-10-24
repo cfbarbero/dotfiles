@@ -46,6 +46,9 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Disable smart dashes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
+# Disable app restore (see 'Close windows when quiting an app' in general preferences)
+defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
@@ -160,7 +163,7 @@ defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0
 
 # Automatically hide and show the Dock
-defaults write com.apple.dock autohide -bool false
+defaults write com.apple.dock autohide -bool true
 
 # Hot corners
 # Possible values:
