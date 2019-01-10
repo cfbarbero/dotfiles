@@ -4,6 +4,7 @@ tap "caskroom/cask"
 tap "jmespath/jmespath"
 tap "homebrew/cask-drivers"
 tap "wallix/awless"
+tap "aws/tap"
 
 brew "mas"
 brew "awscli"
@@ -17,6 +18,7 @@ brew "awless"
 brew "cmake"
 brew "libgit2"
 brew "binutils"
+brew "aws-sam-cli"
 
 # Apps
 cask "spectacle"
@@ -29,13 +31,13 @@ cask "iterm2"
 cask "lastpass"
 cask "mono-mdk"
 cask "sql-operations-studio"
-cask "visual-studio"
 cask "visual-studio-code"
 cask "google-chrome"
 cask "sourcetree"
 cask "microsoft-teams"
 cask "blue-jeans"
 brew "fish"
+brew "asciinema"
 
 # Development
 cask "dotnet-sdk"
@@ -68,8 +70,6 @@ brew "wget"
 # Devops tools
 tap "jenkins-x/jx"
 brew "jx"
-cask "vagrant"
-# cask "virtualbox"
 brew "tfenv"
 
 
