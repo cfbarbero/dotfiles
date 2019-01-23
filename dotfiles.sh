@@ -6,7 +6,7 @@ git pull origin master;
 
 function doIt() {
 	rsync -avh --no-perms user-files/ ~/;
-	source ~/.profile;
+	source ~/.bash_profile;
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
