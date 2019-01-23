@@ -15,6 +15,14 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+#OktaAWSCLI
+if [[ -f "$HOME/.okta/bash_functions" ]]; then
+    . "$HOME/.okta/bash_functions"
+fi
+if [[ -d "$HOME/.okta/bin" && ":$PATH:" != *":$HOME/.okta/bin:"* ]]; then
+    PATH="$HOME/.okta/bin:$PATH"
+fi
+
 # TGENV
 export PATH=$PATH:$HOME/.tgenv/bin
 
@@ -51,6 +59,7 @@ source $(brew --prefix nvm)/nvm.sh
 
 ### AWS AutoComplete
 complete -C /usr/local/bin/aws_completer aws
+complete -C /usr/local/bin/aws_completer awscli
 
 
 ### Aliases
@@ -58,13 +67,22 @@ alias profile="code ~/.bash_profile"
 alias reload_profile="source ~/.bash_profile"
 alias dotfiles="code ~/projects/cfbarbero/dotfiles"
 alias update_dotfiles="source ~/projects/cfbarbero/dotfiles/bootstrap.sh"
+
+#### awssaml
 alias al='awssaml -u $USER'
-alias al-sb1='awssaml -u $USER -a "dhisandbox1:DHI-PowerUser" -d'
-alias al-sb2='awssaml -u $USER -a "dhisandbox2:DHI-PowerUser" -d'
-alias al-shrdsvcdev='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -d'
-alias al-shrdsvcprod='awssaml -u $USER -a "dhishrdsvcprod:DHI-PowerUser" -d'
-alias al-dhiprod='awssaml -u $USER -a "dhiprod:DHI-PowerUser" -d'
-alias al-shrdsvcall='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -a "dhishrdsvcprod:DHI-PowerUser"'
+# alias al-sb1='awssaml -u $USER -a "dhisandbox1:DHI-PowerUser" -d'
+# alias al-sb2='awssaml -u $USER -a "dhisandbox2:DHI-PowerUser" -d'
+# alias al-shrdsvcdev='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -d'
+# alias al-shrdsvcprod='awssaml -u $USER -a "dhishrdsvcprod:DHI-PowerUser" -d'
+# alias al-dhiprod='awssaml -u $USER -a "dhiprod:DHI-PowerUser" -d'
+# alias al-shrdsvcall='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -a "dhishrdsvcprod:DHI-PowerUser"'
+
+#### Okta
+alias al-sb1='okta-aws dhisandbox1 sts get-caller-identity; export AWS_PROFILE=dhisandbox1'
+alias al-sb2='okta-aws dhisandbox2 sts get-caller-identity; export AWS_PROFILE=dhisandbox2'
+alias al-shrdsvcdev='okta-aws dhishrdsvcdev sts get-caller-identity; export AWS_PROFILE=dhishrdsvcdev'
+alias al-shrdsvcprod='okta-aws dhishrdsvcprod sts get-caller-identity; export AWS_PROFILE=dhishrdsvcprod'
+alias al-dhiprod='okta-aws dhiprod sts get-caller-identity; export AWS_PROFILE=dhiprod'
 
 alias dc="docker-compose"
 
