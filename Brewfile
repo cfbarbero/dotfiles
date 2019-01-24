@@ -68,6 +68,8 @@ brew "kapacitor"
 brew "brightness"
 cask "logitech-options"
 brew "wget"
+brew "lastpass-cli", args: ['with-pinentry']
+brew "pwgen"
 
 # Devops tools
 tap "jenkins-x/jx"

@@ -98,6 +98,8 @@ alias dhi="cd ~/projects/dhi"
 alias bright="brightness 1"
 
 alias influxcli="influx -host 'marty-cd873146.influxcloud.net' -ssl -precision rfc3339"
+
+alias gen-pwd-to-clipboard="pwgen -s 20 1 | tr -d '\n' | pbcopy"
 # ------------------------------------
 # Docker alias and function
 # ------------------------------------
