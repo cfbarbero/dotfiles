@@ -15,12 +15,12 @@ function runDots() {
     echo ""
     ./brew.sh
     
-    echo ""
-    echo "------------------------------"
-    echo "Set mac defaults"
-    echo "------------------------------"
-    echo ""
-    source ./macos-settings.sh
+    # echo ""
+    # echo "------------------------------"
+    # echo "Set mac defaults"
+    # echo "------------------------------"
+    # echo ""
+    # source ./macos-settings.sh
 
     echo ""
     echo "------------------------------"
