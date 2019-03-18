@@ -5,6 +5,7 @@ tap "jmespath/jmespath"
 tap "homebrew/cask-drivers"
 tap "wallix/awless"
 tap "aws/tap"
+tap "caskroom/versions"
 
 brew "mas"
 brew "awscli"
@@ -20,6 +21,8 @@ brew "libgit2"
 brew "binutils"
 brew "aws-sam-cli"
 brew "tree"
+# cask "connectiq"
+brew "jenv"
 
 # Apps
 cask "spectacle"
@@ -39,11 +42,12 @@ cask "microsoft-teams"
 cask "blue-jeans"
 brew "fish"
 brew "asciinema"
+cask "eclipse-java"
 
 # Development
 cask "dotnet-sdk"
 cask "java"
-
+cask "java8"
 
 # K8s
 brew "kubectl"

@@ -42,6 +42,12 @@ PS1='\u@\h \w$(__git_ps1 " (%s)")\$ '
 
 export PATH="$HOME/.local/bin:$PATH"
 
+# Init jenv
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
+# Connect IQ
+export PATH=$PATH:/usr/local/connectiq-sdk/bin
+
 # Increase bash history
 export HISTFILESIZE=1000000
 export HISTSIZE=1000000
@@ -67,6 +73,7 @@ alias profile="code ~/.bash_profile"
 alias reload_profile="source ~/.bash_profile"
 alias dotfiles="code ~/projects/cfbarbero/dotfiles"
 alias update_dotfiles="source ~/projects/cfbarbero/dotfiles/bootstrap.sh"
+alias https='http --default-scheme=https'
 
 #### awssaml
 alias al='awssaml -u $USER'
@@ -94,6 +101,7 @@ alias activate-venv="source .venv/bin/activate"
 alias av='activate-venv'
 
 alias dhi="cd ~/projects/dhi"
+alias cfbarbero="cd ~/projects/cfbarbero"
 
 alias bright="brightness 1"
 
