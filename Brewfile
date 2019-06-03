@@ -8,21 +8,26 @@ tap "aws/tap"
 tap "caskroom/versions"
 
 brew "mas"
-brew "awscli"
+# brew "awscli"
 brew "awsebcli"
 brew "aws-shell"
 brew "awsebcli"
 brew "bash-completion"
 brew "git"
 brew "pyenv"
+brew "pyenv-virtualenv"
 brew "awless"
 brew "cmake"
 brew "libgit2"
-brew "binutils"
+# brew "binutils"
 brew "aws-sam-cli"
 brew "tree"
 # cask "connectiq"
 brew "jenv"
+brew "sqlite3"
+brew "xz"
+brew "zlib"
+brew "dnsmasq"
 
 # Apps
 cask "spectacle"
@@ -43,6 +48,7 @@ cask "blue-jeans"
 brew "fish"
 brew "asciinema"
 cask "eclipse-java"
+cask "rider"
 
 # Development
 cask "dotnet-sdk"
@@ -74,10 +80,9 @@ cask "logitech-options"
 brew "wget"
 brew "lastpass-cli", args: ['with-pinentry']
 brew "pwgen"
+brew "readline"
 
 # Devops tools
-tap "jenkins-x/jx"
-brew "jx"
 brew "tfenv"
 
 

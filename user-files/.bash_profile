@@ -1,5 +1,9 @@
+export PATH="$HOME/.local/bin:$PATH"
+
 ## Homebrew
 # export PATH="/usr/local/opt/apr/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+
 
 ## PyEnv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -10,6 +14,9 @@ export PATH=$PATH:$USER_BASE_PATH/bin
 
 USER_BASE_PATH=$(python3 -m site --user-base)
 export PATH=$PATH:$USER_BASE_PATH/bin
+
+# pyenv virtual env auto-acitvate/deactivate
+eval "$(pyenv virtualenv-init -)"
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -40,7 +47,7 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 ### user@hostname path/to/directory (git state)$
 PS1='\u@\h \w$(__git_ps1 " (%s)")\$ '
 
-export PATH="$HOME/.local/bin:$PATH"
+
 
 # Init jenv
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
@@ -64,8 +71,8 @@ source $(brew --prefix nvm)/nvm.sh
 
 
 ### AWS AutoComplete
-complete -C /usr/local/bin/aws_completer aws
-complete -C /usr/local/bin/aws_completer awscli
+complete -C /Users/cris.barbero/.local/bin/aws_completer aws
+complete -C /Users/cris.barbero/.local/bin/aws_completer awscli
 
 
 ### Aliases
