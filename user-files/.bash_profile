@@ -71,8 +71,8 @@ source $(brew --prefix nvm)/nvm.sh
 
 
 ### AWS AutoComplete
-complete -C /Users/cris.barbero/.local/bin/aws_completer aws
-complete -C /Users/cris.barbero/.local/bin/aws_completer awscli
+complete -C /Users/cris.barbero/.pyenv/shims/aws_completer aws
+complete -C /Users/cris.barbero/.pyenv/shims/aws_completer awscli
 
 
 ### Aliases
