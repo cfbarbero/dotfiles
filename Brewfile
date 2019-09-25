@@ -83,6 +83,7 @@ brew "wget"
 brew "lastpass-cli", args: ['with-pinentry']
 brew "pwgen"
 brew "readline"
+brew "denisidoro/tools/navi"
 
 # Devops tools
 brew "tfenv"

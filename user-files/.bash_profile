@@ -50,6 +50,7 @@ PS1='\u@\h \w$(__git_ps1 " (%s)")\$ '
 
 
 # Init jenv
+export PATH="$HOME/.jenv/bin:$PATH"
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 # Connect IQ
@@ -103,7 +104,7 @@ alias dc="docker-compose"
 alias hosts="sudo vim /etc/hosts"
 alias reload-dns="sudo killall -HUP mDNSResponder"
 
-alias create-venv="python3 -m venv --system-site-packages .venv"
+alias create-venv="python3 -m venv --system-site-packages .venv && source .venv/bin/activate"
 alias activate-venv="source .venv/bin/activate"
 alias av='activate-venv'
 
