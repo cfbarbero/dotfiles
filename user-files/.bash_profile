@@ -22,6 +22,11 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+#starship
+eval "$(starship init bash)"
+
 #OktaAWSCLI
 if [[ -f "$HOME/.okta/bash_functions" ]]; then
     . "$HOME/.okta/bash_functions"
@@ -41,11 +46,11 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-## Shell Prompt
-export GIT_PS1_SHOWDIRTYSTATE=true
-export GIT_PS1_SHOWUNTRACKEDFILES=true
-### user@hostname path/to/directory (git state)$
-PS1='\u@\h \w$(__git_ps1 " (%s)")\$ '
+# ## Shell Prompt
+# export GIT_PS1_SHOWDIRTYSTATE=true
+# export GIT_PS1_SHOWUNTRACKEDFILES=true
+# ### user@hostname path/to/directory (git state)$
+# PS1='\u@\h \w$(__git_ps1 " (%s)")\$ '
 
 
 
@@ -64,6 +69,8 @@ export HISTSIZE=1000000
 export GOPATH=$HOME/go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+export PATH=$PATH:$HOME/bin
 
 
 ### NVM
@@ -84,20 +91,20 @@ alias update_dotfiles="source ~/projects/cfbarbero/dotfiles/bootstrap.sh"
 alias https='http --default-scheme=https'
 
 #### awssaml
-alias al='awssaml -u $USER'
-# alias al-sb1='awssaml -u $USER -a "dhisandbox1:DHI-PowerUser" -d'
-# alias al-sb2='awssaml -u $USER -a "dhisandbox2:DHI-PowerUser" -d'
-# alias al-shrdsvcdev='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -d'
-# alias al-shrdsvcprod='awssaml -u $USER -a "dhishrdsvcprod:DHI-PowerUser" -d'
-# alias al-dhiprod='awssaml -u $USER -a "dhiprod:DHI-PowerUser" -d'
-# alias al-shrdsvcall='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -a "dhishrdsvcprod:DHI-PowerUser"'
+alias al='awssaml -u $USER --use-okta'
+alias al-sb1='awssaml -u $USER -a "dhisandbox1:DHI-PowerUser" -d --use-okta'
+alias al-sb2='awssaml -u $USER -a "dhisandbox2:DHI-PowerUser" -d --use-okta'
+alias al-shrdsvcdev='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -d --use-okta'
+alias al-shrdsvcprod='awssaml -u $USER -a "dhishrdsvcprod:DHI-PowerUser" -d --use-okta'
+alias al-dhiprod='awssaml -u $USER -a "dhiprod:DHI-PowerUser" -d --use-okta'
+alias al-shrdsvcall='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -a "dhishrdsvcprod:DHI-PowerUser" --use-okta'
 
 #### Okta
-alias al-sb1='okta-aws dhisandbox1 sts get-caller-identity; export AWS_PROFILE=dhisandbox1'
-alias al-sb2='okta-aws dhisandbox2 sts get-caller-identity; export AWS_PROFILE=dhisandbox2'
-alias al-shrdsvcdev='okta-aws dhishrdsvcdev sts get-caller-identity; export AWS_PROFILE=dhishrdsvcdev'
-alias al-shrdsvcprod='okta-aws dhishrdsvcprod sts get-caller-identity; export AWS_PROFILE=dhishrdsvcprod'
-alias al-dhiprod='okta-aws dhiprod sts get-caller-identity; export AWS_PROFILE=dhiprod'
+# alias al-sb1='okta-aws dhisandbox1 sts get-caller-identity; export AWS_PROFILE=dhisandbox1'
+# alias al-sb2='okta-aws dhisandbox2 sts get-caller-identity; export AWS_PROFILE=dhisandbox2'
+# alias al-shrdsvcdev='okta-aws dhishrdsvcdev sts get-caller-identity; export AWS_PROFILE=dhishrdsvcdev'
+# alias al-shrdsvcprod='okta-aws dhishrdsvcprod sts get-caller-identity; export AWS_PROFILE=dhishrdsvcprod'
+# alias al-dhiprod='okta-aws dhiprod sts get-caller-identity; export AWS_PROFILE=dhiprod'
 
 alias dc="docker-compose"
 

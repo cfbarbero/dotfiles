@@ -29,6 +29,10 @@ brew "sqlite3"
 brew "xz"
 brew "zlib"
 brew "dnsmasq"
+brew "bash"
+brew "coreutils"
+brew "starship"
+brew "onefetch"
 
 # Apps
 cask "spectacle"
@@ -87,6 +91,7 @@ brew "denisidoro/tools/navi"
 
 # Devops tools
 brew "tfenv"
+cask "http-toolkit"
 
 
 # node stuff

@@ -20,12 +20,6 @@
             "type": "shell",
             "command": "./pip.sh",
             "problemMatcher": []
-        },
-        {
-            "label": "update mac settings",
-            "type": "shell",
-            "command": "./macos-settings.sh",
-            "problemMatcher": []
         }
     ]
 }
