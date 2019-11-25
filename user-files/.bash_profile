@@ -27,14 +27,6 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 #starship
 eval "$(starship init bash)"
 
-#OktaAWSCLI
-if [[ -f "$HOME/.okta/bash_functions" ]]; then
-    . "$HOME/.okta/bash_functions"
-fi
-if [[ -d "$HOME/.okta/bin" && ":$PATH:" != *":$HOME/.okta/bin:"* ]]; then
-    PATH="$HOME/.okta/bin:$PATH"
-fi
-
 # TGENV
 export PATH=$PATH:$HOME/.tgenv/bin
 
@@ -79,8 +71,8 @@ source $(brew --prefix nvm)/nvm.sh
 
 
 ### AWS AutoComplete
-complete -C /Users/cris.barbero/.pyenv/shims/aws_completer aws
-complete -C /Users/cris.barbero/.pyenv/shims/aws_completer awscli
+complete -C /Users/cris.barbero/.local/bin/aws_completer aws
+complete -C /usr/local/bin/aws2_completer aws2
 
 
 ### Aliases
@@ -91,20 +83,13 @@ alias update_dotfiles="source ~/projects/cfbarbero/dotfiles/bootstrap.sh"
 alias https='http --default-scheme=https'
 
 #### awssaml
-alias al='awssaml -u $USER --use-okta'
-alias al-sb1='awssaml -u $USER -a "dhisandbox1:DHI-PowerUser" -d --use-okta'
-alias al-sb2='awssaml -u $USER -a "dhisandbox2:DHI-PowerUser" -d --use-okta'
-alias al-shrdsvcdev='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -d --use-okta'
-alias al-shrdsvcprod='awssaml -u $USER -a "dhishrdsvcprod:DHI-PowerUser" -d --use-okta'
-alias al-dhiprod='awssaml -u $USER -a "dhiprod:DHI-PowerUser" -d --use-okta'
-alias al-shrdsvcall='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -a "dhishrdsvcprod:DHI-PowerUser" --use-okta'
-
-#### Okta
-# alias al-sb1='okta-aws dhisandbox1 sts get-caller-identity; export AWS_PROFILE=dhisandbox1'
-# alias al-sb2='okta-aws dhisandbox2 sts get-caller-identity; export AWS_PROFILE=dhisandbox2'
-# alias al-shrdsvcdev='okta-aws dhishrdsvcdev sts get-caller-identity; export AWS_PROFILE=dhishrdsvcdev'
-# alias al-shrdsvcprod='okta-aws dhishrdsvcprod sts get-caller-identity; export AWS_PROFILE=dhishrdsvcprod'
-# alias al-dhiprod='okta-aws dhiprod sts get-caller-identity; export AWS_PROFILE=dhiprod'
+alias al='awssaml -u $USER'
+alias al-sb1='awssaml -u $USER -a "dhisandbox1:DHI-PowerUser" -d'
+alias al-sb2='awssaml -u $USER -a "dhisandbox2:DHI-PowerUser" -d'
+alias al-shrdsvcdev='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -d'
+alias al-shrdsvcprod='awssaml -u $USER -a "dhishrdsvcprod:DHI-PowerUser" -d'
+alias al-dhiprod='awssaml -u $USER -a "dhiprod:DHI-PowerUser" -d'
+alias al-shrdsvcall='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -a "dhishrdsvcprod:DHI-PowerUser"'
 
 alias dc="docker-compose"
 
@@ -120,7 +105,10 @@ alias cfbarbero="cd ~/projects/cfbarbero"
 
 alias bright="brightness 1"
 
-alias influxcli="influx -host 'marty-cd873146.influxcloud.net' -ssl -precision rfc3339"
+# Influx
+alias influxcloud="influx -host 'marty-cd873146.influxcloud.net' -ssl -precision rfc3339 -username cris.barbero -password $(security find-generic-password -w -s 'marty-cd873146.influxcloud.net' -a 'cris.barbero')"
+alias kapacitorcloud="influx -host 'marty-cd873146.influxcloud.net' -ssl -precision rfc3339 -username cris.barbero -password $(security find-generic-password -w -s 'marty-cd873146.influxcloud.net' -a 'cris.barbero')"
+
 
 alias gen-pwd-to-clipboard="pwgen -s 20 1 | tr -d '\n' | pbcopy"
 # ------------------------------------

@@ -14,9 +14,7 @@ brew "aws-shell"
 brew "awsebcli"
 brew "bash-completion"
 brew "git"
-brew "pyenv"
-brew "pyenv-virtualenv"
-brew "pyenv-virtualenvwrapper"
+
 brew "awless"
 brew "cmake"
 brew "libgit2"
@@ -25,7 +23,6 @@ brew "aws-sam-cli"
 brew "tree"
 # cask "connectiq"
 brew "jenv"
-brew "sqlite3"
 brew "xz"
 brew "zlib"
 brew "dnsmasq"
@@ -33,6 +30,14 @@ brew "bash"
 brew "coreutils"
 brew "starship"
 brew "onefetch"
+brew "bfg"
+
+# python
+brew "pyenv"
+brew "pyenv-virtualenv"
+brew "pyenv-virtualenvwrapper"
+brew "pyenv-pip-migrate"
+brew "pipenv"
 
 # Apps
 cask "spectacle"
@@ -66,7 +71,6 @@ brew "kubectl"
 
 # Go Development
 brew 'go', args: ['cross-compile-common']
-brew "hg"
 brew "bzr"
 brew "glide"
 
@@ -88,6 +92,7 @@ brew "lastpass-cli", args: ['with-pinentry']
 brew "pwgen"
 brew "readline"
 brew "denisidoro/tools/navi"
+brew "shellcheck"
 
 # Devops tools
 brew "tfenv"
