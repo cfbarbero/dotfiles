@@ -93,6 +93,7 @@ brew "pwgen"
 brew "readline"
 brew "denisidoro/tools/navi"
 brew "shellcheck"
+brew "graphviz"
 
 # Devops tools
 brew "tfenv"
