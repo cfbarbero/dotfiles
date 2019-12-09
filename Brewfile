@@ -103,6 +103,7 @@ cask "http-toolkit"
 # node stuff
 brew "node"
 brew "nvm"
+brew "yarn"
 
 # Other stuff
 cask "google-cloud-sdk"
