@@ -59,10 +59,7 @@ export HISTSIZE=1000000
 
 ### GOLANG
 export GOPATH=$HOME/go
-export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-
-export PATH=$PATH:$HOME/bin
 
 
 ### NVM
