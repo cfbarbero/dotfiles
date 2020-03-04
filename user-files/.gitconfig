@@ -41,3 +41,5 @@
 	# Delete any branches that have been merged into master
 	# See also: https://gist.github.com/robmiller/5133264
 	delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+    squash-branch = git rebase -i master

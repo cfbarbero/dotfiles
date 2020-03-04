@@ -30,6 +30,9 @@ eval "$(starship init bash)"
 # TGENV
 export PATH=$PATH:$HOME/.tgenv/bin
 
+#Pipx
+eval "$(register-python-argcomplete pipx)"
+
 ## iTerm shell integration
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
@@ -104,10 +107,13 @@ alias bright="brightness 1"
 
 # Influx
 alias influxcloud="influx -host 'marty-cd873146.influxcloud.net' -ssl -precision rfc3339 -username cris.barbero -password $(security find-generic-password -w -s 'marty-cd873146.influxcloud.net' -a 'cris.barbero')"
-alias kapacitorcloud="influx -host 'marty-cd873146.influxcloud.net' -ssl -precision rfc3339 -username cris.barbero -password $(security find-generic-password -w -s 'marty-cd873146.influxcloud.net' -a 'cris.barbero')"
+alias kapacitorcloud='kapacitor -url "https://cris.barbero:$(security find-generic-password -w -s \'marty-cd873146.influxcloud.net\' -a \'cris.barbero\')@pinheads-cd873146.influxcloud.net:9092"'
 
 
 alias gen-pwd-to-clipboard="pwgen -s 20 1 | tr -d '\n' | pbcopy"
+
+alias dns-refresh="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+
 # ------------------------------------
 # Docker alias and function
 # ------------------------------------
