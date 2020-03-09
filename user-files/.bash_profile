@@ -66,8 +66,9 @@ export PATH=$PATH:$GOPATH/bin
 
 
 ### NVM
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
 ### AWS AutoComplete
@@ -106,8 +107,8 @@ alias cfbarbero="cd ~/projects/cfbarbero"
 alias bright="brightness 1"
 
 # Influx
-alias influxcloud="influx -host 'marty-cd873146.influxcloud.net' -ssl -precision rfc3339 -username cris.barbero -password $(security find-generic-password -w -s 'marty-cd873146.influxcloud.net' -a 'cris.barbero')"
-alias kapacitorcloud='kapacitor -url "https://cris.barbero:$(security find-generic-password -w -s \'marty-cd873146.influxcloud.net\' -a \'cris.barbero\')@pinheads-cd873146.influxcloud.net:9092"'
+alias influxcloud='influx -host '\''marty-cd873146.influxcloud.net'\'' -ssl -precision rfc3339 -username cris.barbero -password $(security find-generic-password -w -s '\''marty-cd873146.influxcloud.net'\'' -a '\''cris.barbero'\'')'
+alias kapacitorcloud='kapacitor -url "https://cris.barbero:$(security find-generic-password -w -s '\''marty-cd873146.influxcloud.net'\'' -a '\''cris.barbero'\'')@pinheads-cd873146.influxcloud.net:9092"'
 
 
 alias gen-pwd-to-clipboard="pwgen -s 20 1 | tr -d '\n' | pbcopy"

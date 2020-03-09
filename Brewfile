@@ -99,6 +99,7 @@ brew "graphviz"
 brew "tfenv"
 cask "http-toolkit"
 
+brew "mitmproxy" # http proxy
 
 # node stuff
 brew "node"
