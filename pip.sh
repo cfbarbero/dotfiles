@@ -7,7 +7,10 @@
 
 # brew install python
 
-pip install \
+python3 -m pip install --user \
     pep8 \
     pyflakes \
     awslogs
+
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath

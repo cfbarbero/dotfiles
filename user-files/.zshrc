@@ -1,10 +1,20 @@
-export PATH="$HOME/.local/bin:$PATH"
+# Starship
+eval "$(starship init zsh)"
 
 ## Homebrew
 export PATH="/usr/local/sbin:$PATH"
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
 fi
+
+
+## iterm shell integration
+source ~/.iterm2_shell_integration.zsh
+
+
 
 ## PyEnv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -25,54 +35,16 @@ fi
 
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
-#starship
-eval "$(starship init bash)"
-
-# TGENV
-export PATH=$PATH:$HOME/.tgenv/bin
-
 #Pipx
 eval "$(register-python-argcomplete pipx)"
-
-## iTerm shell integration
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
-### Git helpers
-
-# ## Shell Prompt
-# export GIT_PS1_SHOWDIRTYSTATE=true
-# export GIT_PS1_SHOWUNTRACKEDFILES=true
-# ### user@hostname path/to/directory (git state)$
-# PS1='\u@\h \w$(__git_ps1 " (%s)")\$ '
-
-
-
-# Init jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
-
-# Connect IQ
-export PATH=$PATH:/usr/local/connectiq-sdk/bin
-
-# Increase bash history
-export HISTFILESIZE=1000000
-export HISTSIZE=1000000
 
 ### GOLANG
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-
-### NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-
 ### AWS AutoComplete
-complete -C /Users/cris.barbero/.local/bin/aws_completer aws
-complete -C /usr/local/bin/aws2_completer aws2
-
+autoload bashcompinit && bashcompinit
+complete -C '/usr/local/bin/aws_completer' aws
 
 ### Aliases
 alias profile="code ~/.bash_profile"
@@ -80,15 +52,6 @@ alias reload_profile="source ~/.bash_profile"
 alias dotfiles="code ~/projects/cfbarbero/dotfiles"
 alias update_dotfiles="source ~/projects/cfbarbero/dotfiles/bootstrap.sh"
 alias https='http --default-scheme=https'
-
-#### awssaml
-alias al='awssaml -u $USER'
-alias al-sb1='awssaml -u $USER -a "dhisandbox1:DHI-PowerUser" -d'
-alias al-sb2='awssaml -u $USER -a "dhisandbox2:DHI-PowerUser" -d'
-alias al-shrdsvcdev='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -d'
-alias al-shrdsvcprod='awssaml -u $USER -a "dhishrdsvcprod:DHI-PowerUser" -d'
-alias al-dhiprod='awssaml -u $USER -a "dhiprod:DHI-PowerUser" -d'
-alias al-shrdsvcall='awssaml -u $USER -a "dhishrdsvcdev:DHI-PowerUser" -a "dhishrdsvcprod:DHI-PowerUser"'
 
 alias dc="docker-compose"
 
