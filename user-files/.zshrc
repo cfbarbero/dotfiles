@@ -1,5 +1,10 @@
+autoload bashcompinit && bashcompinit
+
 # Starship
 eval "$(starship init zsh)"
+
+# TGENV
+export PATH="$HOME/.tgenv/bin:$PATH"
 
 ## Homebrew
 export PATH="/usr/local/sbin:$PATH"
@@ -43,12 +48,11 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 ### AWS AutoComplete
-autoload bashcompinit && bashcompinit
 complete -C '/usr/local/bin/aws_completer' aws
 
 ### Aliases
 alias profile="code ~/.bash_profile"
-alias reload_profile="source ~/.bash_profile"
+alias reload_profile="source ~/.zshrc"
 alias dotfiles="code ~/projects/cfbarbero/dotfiles"
 alias update_dotfiles="source ~/projects/cfbarbero/dotfiles/bootstrap.sh"
 alias https='http --default-scheme=https'
@@ -125,3 +129,6 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 # Bash into running container
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 ### Functions
+
+
+

@@ -28,6 +28,11 @@ brew "coreutils"
 brew "starship"
 brew "onefetch"
 brew "bfg"
+cask "aws-vault"
+cask "sqlworkbenchj"
+
+# java
+cask "adoptopenjdk"
 
 # python
 brew "pyenv"
@@ -50,6 +55,7 @@ cask "visual-studio-code"
 cask "sourcetree"
 brew "fish"
 brew "asciinema"
+cask "pgadmin4"
 
 cask "dotnet-sdk"
 
@@ -71,12 +77,14 @@ brew "influxdb"
 brew "kapacitor"
 cask "logitech-options"
 brew "wget"
-# brew "lastpass-cli", args: ['with-pinentry']
+brew "lastpass-cli"
 brew "pwgen"
 brew "readline"
 brew "denisidoro/tools/navi"
 brew "shellcheck"
 brew "graphviz"
+brew "pgcli"
+brew "gitleaks"
 
 # Devops tools
 brew "tfenv"
@@ -97,3 +105,8 @@ cask "postman"
 # Fonts
 tap "homebrew/cask-fonts"
 cask "font-fira-code"
+
+# Required for CloudMapper
+brew "autoconf"
+brew "automake"
+brew "libtool"

@@ -4,7 +4,7 @@ cd "$(dirname "${BASH_SOURCE}")";
 
 function doIt() {
 	rsync -avh --no-perms user-files/ ~/;
-	source ~/.zshrc;
+	# source ~/.zshrc;
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
