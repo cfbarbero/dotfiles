@@ -1,7 +1,7 @@
-autoload bashcompinit && bashcompinit
-
 # Starship
 eval "$(starship init zsh)"
+
+
 
 # TGENV
 export PATH="$HOME/.tgenv/bin:$PATH"
@@ -31,6 +31,8 @@ export PATH=$PATH:$USER_BASE_PATH/bin
 USER_BASE_PATH=$(python3 -m site --user-base)
 export PATH=$PATH:$USER_BASE_PATH/bin
 
+autoload bashcompinit && bashcompinit
+
 # pyenv virtual env auto-acitvate/deactivate
 eval "$(pyenv virtualenv-init -)"
 
@@ -43,15 +45,25 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 #Pipx
 eval "$(register-python-argcomplete pipx)"
 
+# Poetry
+export PATH=$PATH:$HOME/.poetry/bin
+
 ### GOLANG
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-### AWS AutoComplete
-complete -C '/usr/local/bin/aws_completer' aws
+
+# RUBY Path
+export PATH=$PATH:"$HOME/.gem/ruby/2.6.0/bin"
+
 
 ### Aliases
+alias prod-bastion="ssh -A  cbarbero@bastion.prod.stridehealth.com"
+alias dev-bastion="ssh -A  cbarbero@bastion.stridehealth.io"
+alias ll="ls -l"
+alias lal="ls -al"
 alias profile="code ~/.bash_profile"
+alias rp="source ~/.zshrc"
 alias reload_profile="source ~/.zshrc"
 alias dotfiles="code ~/projects/cfbarbero/dotfiles"
 alias update_dotfiles="source ~/projects/cfbarbero/dotfiles/bootstrap.sh"
@@ -128,7 +140,17 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 
 # Bash into running container
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
+
+### terraform aliases
+alias tf='terraform'
+alias tf-pe='terraform -plan -var-file=$TF_ENV.tfvars' # terraform plan env
+alias tf-pec='terraform -plan -var-file=$TF_ENV.tfvars -no-color | grep -E "(^.*[#~+-] .*|^[[:punct:]]|Plan)"' # terraform plan env concise
+alias tf-ae='terraform apply -var-file=$TF_ENV.tfvars'
+alias tf-we='terraform workspace select $TF_ENV'
 ### Functions
 
 
 
+
+### AWS AutoComplete
+complete -C '/usr/local/bin/aws_completer' aws
