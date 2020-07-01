@@ -22,7 +22,7 @@ brew "tree"
 # cask "connectiq"
 brew "jenv"
 # brew "xz"
-# brew "zlib"
+brew "zlib"
 brew "dnsmasq"
 brew "coreutils"
 brew "starship"
@@ -88,7 +88,9 @@ brew "gitleaks"
 
 # Devops tools
 brew "tfenv"
+brew "tflint"
 cask "http-toolkit"
+brew "git-flow"
 
 brew "mitmproxy" # http proxy
 
@@ -110,3 +112,7 @@ cask "font-fira-code"
 brew "autoconf"
 brew "automake"
 brew "libtool"
+
+brew "figlet"
+brew "ruby"
+brew "redis"
