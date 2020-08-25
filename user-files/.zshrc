@@ -1,7 +1,8 @@
 # Starship
 eval "$(starship init zsh)"
 
-
+# ruby
+export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 
 # TGENV
 export PATH="$HOME/.tgenv/bin:$PATH"
@@ -142,9 +143,11 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
 ### terraform aliases
+alias tf-dev='export TF_ENV=dev'
+alias tf-prod='export TF_ENV=prod'
 alias tf='terraform'
-alias tf-pe='terraform -plan -var-file=$TF_ENV.tfvars' # terraform plan env
-alias tf-pec='terraform -plan -var-file=$TF_ENV.tfvars -no-color | grep -E "(^.*[#~+-] .*|^[[:punct:]]|Plan)"' # terraform plan env concise
+alias tf-pe='terraform plan -var-file=$TF_ENV.tfvars' # terraform plan env
+alias tf-pec='terraform plan -var-file=$TF_ENV.tfvars -no-color | grep -E "(^.*[#~+-] .*|^[[:punct:]]|Plan)"' # terraform plan env concise
 alias tf-ae='terraform apply -var-file=$TF_ENV.tfvars'
 alias tf-we='terraform workspace select $TF_ENV'
 ### Functions

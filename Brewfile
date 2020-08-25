@@ -100,7 +100,7 @@ brew "nvm"
 brew "yarn"
 
 # Other stuff
-cask "google-cloud-sdk"
+cask "google-cloud-sdk" 
 cask "slack"
 cask "postman"
 
@@ -116,3 +116,7 @@ brew "libtool"
 brew "figlet"
 brew "ruby"
 brew "redis"
+
+
+cask "chef/chef/inspec"
+brew "terraformer"
