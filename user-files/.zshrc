@@ -1,11 +1,20 @@
 # Starship
 eval "$(starship init zsh)"
 
+#NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # ruby
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 
 # TGENV
 export PATH="$HOME/.tgenv/bin:$PATH"
+
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
 ## Homebrew
 export PATH="/usr/local/sbin:$PATH"
@@ -143,8 +152,8 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/[
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
 ### terraform aliases
-alias tf-dev='export TF_ENV=dev'
-alias tf-prod='export TF_ENV=prod'
+alias tf-dev='export TF_ENV=dev && terraform workspace select $TF_ENV'
+alias tf-prod='export TF_ENV=prod && terraform workspace select $TF_ENV'
 alias tf='terraform'
 alias tf-pe='terraform plan -var-file=$TF_ENV.tfvars' # terraform plan env
 alias tf-pec='terraform plan -var-file=$TF_ENV.tfvars -no-color | grep -E "(^.*[#~+-] .*|^[[:punct:]]|Plan)"' # terraform plan env concise
@@ -152,7 +161,13 @@ alias tf-ae='terraform apply -var-file=$TF_ENV.tfvars'
 alias tf-we='terraform workspace select $TF_ENV'
 ### Functions
 
+alias stride='cd ~/projects/stride'
 
+alias redshift='PGPASSWORD=$(lpass show --password "[stride-redshift-bi]stride_master") psql -h stride-redshift-bi.chtiuoaujeat.us-west-2.redshift.amazonaws.com -d dev -U stride_master -p 5439'
+alias sqlworkbenchj='java -jar /Applications/SQLWorkbenchJ.app/Contents/Java/sqlworkbench.jar </dev/null &>/dev/null &'
+alias redshift_clip_pwd='lpass show --password "[stride-redshift-bi]stride_master" -c'
+alias prod-data-stage='PGPASSWORD=$(lpass show --password "[prod-data-stage]stride") psql -h prod-data-stage.cgv2wqpzi494.us-west-2.rds.amazonaws.com -d postgres -U stride'
+alias prod-scala-tax='PGPASSWORD=$(lpass show --password "[prod-scala-tax]stride") psql -h prod-scala-tax.cgv2wqpzi494.us-west-2.rds.amazonaws.com -d postgres -U stride'
 
 
 ### AWS AutoComplete

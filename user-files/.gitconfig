@@ -1,45 +1,47 @@
 [user]
-	email = cfbarbero@gmail.com
-	name = Cris Barbero
+email = cfbarbero@gmail.com
+name = Cris Barbero
 [credential]
-    helper = "!aws codecommit credential-helper $@"
-    UseHttpPath = true
+helper = "!aws codecommit credential-helper $@"
+UseHttpPath = true
 [color]
-	ui = auto
+ui = auto
 [alias]
-    # one-line log
-    l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+# one-line log
+l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
 
-    a = add
-    ap = add -p
-    c = commit --verbose
-    ca = commit -a --verbose
-    cm = commit -m
-    cam = commit -a -m
-    m = commit --amend --verbose
-    
-    d = diff
-    ds = diff --stat
-    dc = diff --cached
+a = add
+ap = add -p
+c = commit --verbose
+ca = commit -a --verbose
+cm = commit -m
+cam = commit -a -m
+m = commit --amend --verbose
 
-    s = status -s
-    co = checkout
-    cob = checkout -b
+d = diff
+ds = diff --stat
+dc = diff --cached
 
-    push-origin = push -u origin HEAD
+s = status -s
+co = checkout
+cob = checkout -b
 
-    po = remote prune origin
-    # Delete Gone Branches
-    dgb = "!git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D"
+push-origin = push -u origin HEAD
 
-    # list branches sorted by last modified
-    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+po = remote prune origin
+# Delete Gone Branches
+dgb = "!git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D"
 
-    # list aliases
-    la = "!git config -l | grep alias | cut -c 7-"
+# list branches sorted by last modified
+b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
 
-	# Delete any branches that have been merged into master
-	# See also: https://gist.github.com/robmiller/5133264
-	delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+# list aliases
+la = "!git config -l | grep alias | cut -c 7-"
 
-    squash-branch = git rebase -i master
+# Delete any branches that have been merged into master
+# See also: https://gist.github.com/robmiller/5133264
+delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+squash-branch = git rebase -i master
+
+clean-branches = "!git po && git dgb"

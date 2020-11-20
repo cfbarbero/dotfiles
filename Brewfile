@@ -4,6 +4,7 @@ tap "jmespath/jmespath"
 tap "homebrew/cask-drivers"
 tap "wallix/awless"
 tap "aws/tap"
+tap "adoptopenjdk/openjdk"
 
 brew "mas"
 # brew "awscli"
@@ -12,6 +13,7 @@ brew "aws-shell"
 brew "awsebcli"
 brew "bash-completion"
 brew "git"
+brew "aws/tap/copilot-cli"
 
 brew "awless"
 brew "cmake"
@@ -33,6 +35,8 @@ cask "sqlworkbenchj"
 
 # java
 cask "adoptopenjdk"
+cask "adoptopenjdk8"
+cask "adoptopenjdk8"
 
 # python
 brew "pyenv"
@@ -120,3 +124,10 @@ brew "redis"
 
 cask "chef/chef/inspec"
 brew "terraformer"
+brew "circleci"
+brew "pipx"
+brew "gh"
+cask "rectangle"
+brew "yq"
+cask "gimp"
+brew "flyway"
