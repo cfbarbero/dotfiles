@@ -3,14 +3,17 @@ eval "$(starship init zsh)"
 
 #NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # ruby
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 
 # TGENV
 export PATH="$HOME/.tgenv/bin:$PATH"
+
+# direnv
+eval "$(direnv hook zsh)"
 
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
@@ -25,11 +28,10 @@ if type brew &>/dev/null; then
   compinit
 fi
 
+export AWS_SDK_LOAD_CONFIG=1
 
 ## iterm shell integration
 source ~/.iterm2_shell_integration.zsh
-
-
 
 ## PyEnv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -62,10 +64,8 @@ export PATH=$PATH:$HOME/.poetry/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-
 # RUBY Path
 export PATH=$PATH:"$HOME/.gem/ruby/2.6.0/bin"
-
 
 ### Aliases
 alias prod-bastion="ssh -A  cbarbero@bastion.prod.stridehealth.com"
@@ -92,11 +92,6 @@ alias dhi="cd ~/projects/dhi"
 alias cfbarbero="cd ~/projects/cfbarbero"
 
 alias bright="brightness 1"
-
-# Influx
-alias influxcloud='influx -host '\''marty-cd873146.influxcloud.net'\'' -ssl -precision rfc3339 -username cris.barbero -password $(security find-generic-password -w -s '\''marty-cd873146.influxcloud.net'\'' -a '\''cris.barbero'\'')'
-alias kapacitorcloud='kapacitor -url "https://cris.barbero:$(security find-generic-password -w -s '\''marty-cd873146.influxcloud.net'\'' -a '\''cris.barbero'\'')@pinheads-cd873146.influxcloud.net:9092"'
-
 
 alias gen-pwd-to-clipboard="pwgen -s 20 1 | tr -d '\n' | pbcopy"
 
@@ -142,11 +137,11 @@ alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 # Remove all images
 dri() { docker rmi $(docker images -q); }
 
-# Dockerfile build, e.g., $dbu tcnksm/test 
+# Dockerfile build, e.g., $dbu tcnksm/test
 dbu() { docker build -t=$1 .; }
 
 # Show all alias related docker
-dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
+dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/" | sed "s/['|\']//g" | sort; }
 
 # Bash into running container
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
@@ -155,10 +150,11 @@ dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 alias tf-dev='export TF_ENV=dev && terraform workspace select $TF_ENV'
 alias tf-prod='export TF_ENV=prod && terraform workspace select $TF_ENV'
 alias tf='terraform'
-alias tf-pe='terraform plan -var-file=$TF_ENV.tfvars' # terraform plan env
+alias tf-pe='terraform plan -var-file=$TF_ENV.tfvars'                                                         # terraform plan env
 alias tf-pec='terraform plan -var-file=$TF_ENV.tfvars -no-color | grep -E "(^.*[#~+-] .*|^[[:punct:]]|Plan)"' # terraform plan env concise
 alias tf-ae='terraform apply -var-file=$TF_ENV.tfvars'
-alias tf-we='terraform workspace select $TF_ENV'
+tf-we() {export TF_ENV=$1 && terraform workspace select $TF_ENV }
+
 ### Functions
 
 alias stride='cd ~/projects/stride'
@@ -169,6 +165,7 @@ alias redshift_clip_pwd='lpass show --password "[stride-redshift-bi]stride_maste
 alias prod-data-stage='PGPASSWORD=$(lpass show --password "[prod-data-stage]stride") psql -h prod-data-stage.cgv2wqpzi494.us-west-2.rds.amazonaws.com -d postgres -U stride'
 alias prod-scala-tax='PGPASSWORD=$(lpass show --password "[prod-scala-tax]stride") psql -h prod-scala-tax.cgv2wqpzi494.us-west-2.rds.amazonaws.com -d postgres -U stride'
 
-
 ### AWS AutoComplete
 complete -C '/usr/local/bin/aws_completer' aws
+
+eval "$(_POLICY_SENTRY_COMPLETE=source_zsh policy_sentry)"
