@@ -37,7 +37,7 @@ source ~/.iterm2_shell_integration.zsh
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
-USER_BASE_PATH=$(python -m site --user-base)
+USER_BASE_PATH=$(python3 -m site --user-base)
 export PATH=$PATH:$USER_BASE_PATH/bin
 
 USER_BASE_PATH=$(python3 -m site --user-base)
@@ -48,9 +48,8 @@ autoload bashcompinit && bashcompinit
 # pyenv virtual env auto-acitvate/deactivate
 eval "$(pyenv virtualenv-init -)"
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
@@ -74,21 +73,21 @@ alias ll="ls -l"
 alias lal="ls -al"
 alias profile="code ~/.bash_profile"
 alias rp="source ~/.zshrc"
-alias reload_profile="source ~/.zshrc"
+alias reload-profile="source ~/.zshrc"
 alias dotfiles="code ~/projects/cfbarbero/dotfiles"
-alias update_dotfiles="source ~/projects/cfbarbero/dotfiles/bootstrap.sh"
+alias update-dotfiles="source ~/projects/cfbarbero/dotfiles/bootstrap.sh"
 alias https='http --default-scheme=https'
 
 alias dc="docker-compose"
 
 alias hosts="sudo vim /etc/hosts"
 alias reload-dns="sudo killall -HUP mDNSResponder"
+alias reset-network=" sudo ifconfig en0 down && sudo ifconfig en0 up"
 
 alias create-venv="python3 -m venv --system-site-packages .venv && source .venv/bin/activate"
 alias activate-venv="source .venv/bin/activate"
 alias av='activate-venv'
 
-alias dhi="cd ~/projects/dhi"
 alias cfbarbero="cd ~/projects/cfbarbero"
 
 alias bright="brightness 1"
@@ -147,12 +146,16 @@ dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/" | sed "s/
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
 ### terraform aliases
+tf-setenv() {
+  export TF_ENV=$1 && terraform workspace select $TF_ENV
+}
 alias tf-dev='export TF_ENV=dev && terraform workspace select $TF_ENV'
 alias tf-prod='export TF_ENV=prod && terraform workspace select $TF_ENV'
+alias tf-staging='export TF_ENV=staging && terraform workspace select $TF_ENV'
 alias tf='terraform'
-alias tf-pe='terraform plan -var-file=$TF_ENV.tfvars'                                                         # terraform plan env
 alias tf-pec='terraform plan -var-file=$TF_ENV.tfvars -no-color | grep -E "(^.*[#~+-] .*|^[[:punct:]]|Plan)"' # terraform plan env concise
 alias tf-ae='terraform apply -var-file=$TF_ENV.tfvars'
+alias tf-pe='terraform plan -var-file=$TF_ENV.tfvars'
 tf-we() {export TF_ENV=$1 && terraform workspace select $TF_ENV }
 
 ### Functions
@@ -161,11 +164,18 @@ alias stride='cd ~/projects/stride'
 
 alias redshift='PGPASSWORD=$(lpass show --password "[stride-redshift-bi]stride_master") psql -h stride-redshift-bi.chtiuoaujeat.us-west-2.redshift.amazonaws.com -d dev -U stride_master -p 5439'
 alias sqlworkbenchj='java -jar /Applications/SQLWorkbenchJ.app/Contents/Java/sqlworkbench.jar </dev/null &>/dev/null &'
-alias redshift_clip_pwd='lpass show --password "[stride-redshift-bi]stride_master" -c'
+alias redshift-clip-pwd='lpass show --password "[stride-redshift-bi]stride_master" -c'
 alias prod-data-stage='PGPASSWORD=$(lpass show --password "[prod-data-stage]stride") psql -h prod-data-stage.cgv2wqpzi494.us-west-2.rds.amazonaws.com -d postgres -U stride'
 alias prod-scala-tax='PGPASSWORD=$(lpass show --password "[prod-scala-tax]stride") psql -h prod-scala-tax.cgv2wqpzi494.us-west-2.rds.amazonaws.com -d postgres -U stride'
+alias dev-user-db='PGPASSWORD=$(lpass show --password "[dev-user-db]stridedb") psql postgresql://stridedb@dev-user-db.cqdlf9mhh8yg.us-west-1.rds.amazonaws.com:5432/stride'
+
+pgdb() {
+  PGPASSWORD=$(lpass show --password "[prod-scala-tax]stride")
+}
+
+dnslookup() {
+  dscacheutil -q host -a name $1
+}
 
 ### AWS AutoComplete
 complete -C '/usr/local/bin/aws_completer' aws
-
-eval "$(_POLICY_SENTRY_COMPLETE=source_zsh policy_sentry)"

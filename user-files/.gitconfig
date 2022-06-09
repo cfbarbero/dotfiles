@@ -45,3 +45,5 @@ delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*' 
 squash-branch = git rebase -i master
 
 clean-branches = "!git po && git dgb"
+
+clb = "!git checkout trunk && git pull && git po && git dgb"
