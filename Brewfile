@@ -42,6 +42,7 @@ brew "pyenv-virtualenv"
 brew "pyenv-virtualenvwrapper"
 brew "pyenv-pip-migrate"
 brew "pipenv"
+brew "pipx"
 
 # Apps
 cask "spectacle"
@@ -51,19 +52,12 @@ cask "kitematic"
 cask "gitup"
 cask "iterm2"
 cask "lastpass"
-cask "mono-mdk"
 cask "visual-studio-code"
-# cask "google-chrome"
 cask "sourcetree"
 brew "fish"
 brew "asciinema"
 cask "pgadmin4"
 
-cask "dotnet-sdk"
-
-# Go Development
-brew 'go', args: ['cross-compile-common']
-brew "bzr"
 
 # Utilities
 brew "telnet"
@@ -117,15 +111,11 @@ brew "ruby"
 brew "redis"
 
 
-cask "chef/chef/inspec"
 brew "terraformer"
 brew "circleci"
-brew "pipx"
 brew "gh"
 cask "rectangle"
 brew "yq"
-cask "gimp"
-brew "flyway"
 cask "redisinsight"
 brew "rain"
 brew "guumaster/tap/hostctl"
@@ -134,3 +124,8 @@ brew "terraform-docs"
 brew "docker-credential-helper-ecr"
 brew "checkov"
 brew "gitui"
+
+cask "snowflake-snowsql"
+
+tap "turbot/tap"
+brew "steampipe"

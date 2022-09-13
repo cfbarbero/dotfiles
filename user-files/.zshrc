@@ -177,5 +177,8 @@ dnslookup() {
   dscacheutil -q host -a name $1
 }
 
+alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
+
 ### AWS AutoComplete
 complete -C '/usr/local/bin/aws_completer' aws
+
