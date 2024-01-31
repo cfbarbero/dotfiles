@@ -1,15 +1,11 @@
-tap "homebrew/core"
 tap "homebrew/bundle"
 tap "jmespath/jmespath"
-tap "homebrew/cask-drivers"
 tap "aws/tap"
 tap "adoptopenjdk/openjdk"
 
 brew "mas"
 # brew "awscli"
-brew "awsebcli"
 brew "aws-shell"
-brew "awsebcli"
 brew "bash-completion"
 brew "git"
 brew "aws/tap/copilot-cli"
@@ -31,24 +27,16 @@ brew "bfg"
 cask "aws-vault"
 cask "sqlworkbenchj"
 
-# java
-cask "adoptopenjdk"
-cask "adoptopenjdk8"
-cask "adoptopenjdk8"
-
 # python
 brew "pyenv"
 brew "pyenv-virtualenv"
 brew "pyenv-virtualenvwrapper"
-brew "pyenv-pip-migrate"
+brew "pyenv-pip-migrate" 
 brew "pipenv"
 brew "pipx"
 
 # Apps
-cask "spectacle"
-cask "powershell"
 cask "docker"
-cask "kitematic"
 cask "gitup"
 cask "iterm2"
 cask "lastpass"
@@ -129,3 +117,17 @@ cask "snowflake-snowsql"
 
 tap "turbot/tap"
 brew "steampipe"
+
+cask "cyberduck"
+
+# CloudMapper Stuff
+brew "autoconf"
+brew "automake"
+brew "freetype"
+brew "jq"
+brew "libtool"
+
+
+brew "semgrep"
+brew "hadolint"
+brew "trivy"

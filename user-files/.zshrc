@@ -55,6 +55,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 #Pipx
 eval "$(register-python-argcomplete pipx)"
+export PATH=$PATH:$HOME/.local/bin
 
 # Poetry
 export PATH=$PATH:$HOME/.poetry/bin
