@@ -1,4 +1,3 @@
-tap "homebrew/bundle"
 tap "jmespath/jmespath"
 tap "aws/tap"
 tap "adoptopenjdk/openjdk"
@@ -36,7 +35,7 @@ brew "pipenv"
 brew "pipx"
 
 # Apps
-cask "docker"
+brew "docker"
 cask "gitup"
 cask "iterm2"
 cask "lastpass"
@@ -73,7 +72,7 @@ brew "tflint"
 cask "http-toolkit"
 brew "git-flow"
 
-brew "mitmproxy" # http proxy
+cask "mitmproxy" # http proxy
 
 # node stuff
 brew "node"
@@ -86,7 +85,6 @@ cask "slack"
 cask "postman"
 
 # Fonts
-tap "homebrew/cask-fonts"
 cask "font-fira-code"
 
 # Required for CloudMapper
@@ -106,7 +104,6 @@ cask "rectangle"
 brew "yq"
 cask "redisinsight"
 brew "rain"
-brew "guumaster/tap/hostctl"
 brew "direnv"
 brew "terraform-docs"
 brew "docker-credential-helper-ecr"
@@ -131,3 +128,14 @@ brew "libtool"
 brew "semgrep"
 brew "hadolint"
 brew "trivy"
+
+brew "snyk-cli"
+cask "zap"
+brew "git-xargs"
+
+brew "uv"
+
+tap "sst/tap"
+brew "opencode"
+
+brew "pnpm"

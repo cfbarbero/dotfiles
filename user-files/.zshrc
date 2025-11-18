@@ -12,6 +12,10 @@ export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
 # TGENV
 export PATH="$HOME/.tgenv/bin:$PATH"
 
+# Add ~/tools to path
+export PATH="$HOME/.tgenv/bin:$PATH"
+
+
 # direnv
 eval "$(direnv hook zsh)"
 
@@ -20,13 +24,16 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
 ## Homebrew
-export PATH="/usr/local/sbin:$PATH"
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
-  autoload -Uz compinit
-  compinit
-fi
+# export PATH="/usr/local/sbin:$PATH"
+# export PATH="/opt/homebrew/bin:$PATH"
+# if type brew &>/dev/null; then
+#   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+#   autoload -Uz compinit
+#   compinit
+# fi
 
 export AWS_SDK_LOAD_CONFIG=1
 
@@ -44,6 +51,7 @@ USER_BASE_PATH=$(python3 -m site --user-base)
 export PATH=$PATH:$USER_BASE_PATH/bin
 
 autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
 
 # pyenv virtual env auto-acitvate/deactivate
 eval "$(pyenv virtualenv-init -)"
@@ -52,6 +60,9 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+# postgresql
+export PATH=$PATH:/opt/homebrew/opt/postgresql@16/bin:
 
 #Pipx
 eval "$(register-python-argcomplete pipx)"
@@ -159,6 +170,11 @@ alias tf-ae='terraform apply -var-file=$TF_ENV.tfvars'
 alias tf-pe='terraform plan -var-file=$TF_ENV.tfvars'
 tf-we() {export TF_ENV=$1 && terraform workspace select $TF_ENV }
 
+aws-sso-stridehealth(){
+  export AWS_PROFILE=stridehealth
+  aws sso login
+}
+
 ### Functions
 
 alias stride='cd ~/projects/stride'
@@ -183,3 +199,13 @@ alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 ### AWS AutoComplete
 complete -C '/usr/local/bin/aws_completer' aws
 
+# GAM setup https://github.com/GAM-team/GAM/wiki/How-to-Install-GAM7#linux-and-mac-os-and-google-cloud-shell
+export GAMCFGDIR="$HOME/GAMConfig"
+alias gam="$HOME/bin/gam7/gam"
+alias gyb='~/bin/gyb/gyb'
+
+export PNPM_HOME="/Users/crisbarbero/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
